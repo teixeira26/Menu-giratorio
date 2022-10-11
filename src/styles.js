@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, {css, createGlobalStyle} from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
@@ -88,4 +88,37 @@ export const CirculoFixed = styled.div`
     width: 120px;
     height: 120px;
     z-index: 150;
+    `
+
+
+    export const Navbar = styled.nav`
+        position: absolute;
+        top: 317px;
+        left: 93px;
+        width: 100px;
+        height: 100px;
+        z-index: 200;
+
+
+        & p, i{
+            margin-left: -200px;
+            color: white;
+            transition: margin ease-in-out .5s;
+            display: inline;
+            padding: 5px;
+            text-transform: uppercase;
+            ${props=>props.appear && css`
+                margin: 15px 0 15px 0;
+            `}
+        }
+
+
+    `
+
+    export const GlobalStyle = createGlobalStyle`
+    
+    i{
+        color: white;
+    }
+    
     `

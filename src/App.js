@@ -1,12 +1,18 @@
 import { useState } from "react";
-import { Container, ContainerTrasero, DivFixed , Button, CirculoFixed} from "./styles";
+import { Container, ContainerTrasero, DivFixed , Button, CirculoFixed, Navbar, GlobalStyle} from "./styles";
 
 
 function App() {
   const [rotar, setRotar] = useState(false);
 
+  const girar = ()=>{
+    if(rotar)setRotar(false);
+    else setRotar(true)
+    }
+
   return (
     <ContainerTrasero>
+      <GlobalStyle></GlobalStyle>
       <Container rotar={rotar}>
         <div>
         <h1>Mí bbtchitito</h1>
@@ -20,15 +26,20 @@ function App() {
 
      <CirculoFixed></CirculoFixed>
       <DivFixed rotar={rotar}>
-        <Button bajo onClick={()=>{
-        if(rotar)setRotar(false);
-        else setRotar(true)
-        }}><i class="fa-solid fa-xmark"></i></Button>
-        <Button alto onClick={()=>{
-        if(rotar)setRotar(false);
-        else setRotar(true)
-        }}><i class="fa-solid fa-bars"></i></Button>
+        <Button bajo onClick={girar}><i class="fa-solid fa-xmark"></i></Button>
+        <Button alto onClick={girar}><i class="fa-solid fa-bars"></i></Button>
       </DivFixed>
+      <Navbar appear = {rotar}>
+      <i class="fa-solid fa-house"></i><p>
+          Home
+        </p><br/><br/><br/>
+        <i class="fa-solid fa-user"></i><p>
+          Contacto
+        </p><br/><br/><br/>
+        <i class="fa-solid fa-envelope"></i><p>
+          Sobre
+        </p>
+      </Navbar>
     </ContainerTrasero>
   );
 }
